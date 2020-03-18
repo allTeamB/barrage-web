@@ -61,6 +61,23 @@
                         <input name="password" type="password" lay-verify="required" class="layui-input">
                     </div>
                 </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">验证码</label>
+                    <div class="layui-input-inline">
+                        <input name="captcha" type="text" lay-verify="required" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid" style="padding: 0!important;">
+                        <img src="https://fly.layui.com/auth/imagecode?t=1584533173503" class="fly-imagecode" style="cursor: pointer;">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">自定义验证</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
+                </div>
                 <div class="layui-form-item" pane="">
                     <label class="layui-form-label" lay-tips="7天内免登陆">记住我</label>
                     <div class="layui-input-block">
@@ -69,10 +86,10 @@
                     </div>
                 </div>
 
-<!--                <div class="layui-form-item">-->
-<!--                    <a href="javascript:;" class="layui-link">帐号注册</a>-->
-<!--                    <a href="javascript:;" class="layui-link pull-right">忘记密码？</a>-->
-<!--                </div>-->
+                <!--                <div class="layui-form-item">-->
+                <!--                    <a href="javascript:;" class="layui-link">帐号注册</a>-->
+                <!--                    <a href="javascript:;" class="layui-link pull-right">忘记密码？</a>-->
+                <!--                </div>-->
                 <div class="layui-form-item">
                     <button lay-filter="login-submit" class="layui-btn layui-btn-fluid" lay-submit>登 录</button>
                 </div>
@@ -113,7 +130,7 @@
                 data: obj.field,
                 dataType: "json",
                 success: function (data) {
-                   console.log(data);
+                    console.log(data);
                 },
                 error: function (xhr, status, error) {
 

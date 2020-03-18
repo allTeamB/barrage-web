@@ -5,8 +5,8 @@ layui.define(function(exports){
     var obj = {
         'env': 'dev',
 
-        'devApiUrl': '',
-        'devFrontUrl': '',
+        'devApiUrl': 'http://106.12.35.153:8000/api/merconsole/',
+        'devFrontUrl': 'http://106.12.35.153:8080/',
 
         'testApiUrl': '',
         'testFrontUrl': '',
@@ -16,7 +16,8 @@ layui.define(function(exports){
     };
 
     obj.cgi = {
-
+        token: 'login/token',
+        captcha: 'login/captcha'
     };
 
     obj.frontUrl =obj[obj.env + 'FrontUrl'];
