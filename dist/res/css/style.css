@@ -1,0 +1,128 @@
+* {
+    font-weight: lighter;
+}
+/* 顶部导航: 背景 */
+/*.layui-layout-admin .layui-header {*/
+    /*background-color: hsl(204, 86%, 53%) !important;*/
+/*}*/
+/* 顶部导航: 文字 */
+.layui-layout-admin .layui-header .layui-nav .layui-nav-item a {
+    color: #fff !important;
+}
+/* 顶部导航: logo */
+.layui-layout-admin .layui-header .layui-logo {
+    color: #fff;
+}
+
+/* 顶部导航: 去掉当前 */
+.layui-layout-admin .layui-header .layui-nav .layui-this:after,
+.layui-layout-admin .layui-header .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+    background-color: transparent;
+}
+/* 顶部导航:  */
+.layui-layout-admin .layui-header .layui-nav .layui-nav-item .layui-nav-child a {
+    color: #000 !important;
+}
+
+/*.layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this > a, .layui-nav-tree .layui-this > a:hover {*/
+    /*background-color: hsl(204, 86%, 53%) !important;*/
+/*}*/
+
+/* 顶部导航: 下拉点击选中 */
+.layui-layout-admin .layui-header .layui-nav .layui-nav-child dd.layui-this a, .layui-layout-admin .layui-header .layui-nav-child dd.layui-this {
+    /*background-color: hsl(204, 86%, 53%) !important;*/
+    color: #fff !important;
+}
+/* 侧边导航: 选中 */
+.layui-layout-admin .layui-side .layui-nav-tree .layui-nav-bar {
+    background: transparent !important
+}
+/* 侧边导航: 二级 */
+.layui-layout-admin .layui-side .layui-nav-tree .layui-nav-child dd a{
+    /*padding-left: 30px;*/
+    height: 40px;
+    line-height: 40px;
+    padding-left: 45px;
+    padding-right: 30px;
+}
+
+/* icon-bolder */
+.icon-bolder {
+    font-weight: bold;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+.mt20 {
+    margin-top: 20px;
+}
+.mb20 {
+    margin-bottom: 20px;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+.layui-form-label {
+    width: 60px;
+}
+.layui-input-block {
+    margin-left: 90px;
+}
+
+.layui-btn-normal {
+    background-color: #009688;
+}
+
+/*.layui-layout-admin .layui-header {*/
+/*    background-color: #23262E;*/
+/*    height: 60px;*/
+/*}*/
+
+/*.layui-layout-admin .layui-body {*/
+/*    top: 60px;*/
+/*    bottom: 44px;*/
+/*}*/
+.layui-layout-admin .layui-header a, .layui-layout-admin .layui-header a cite {
+    color: #333;
+}
+.layadmin-tabspage-none .layui-layout-admin .layui-body {
+    top: 50px;
+}
+.layui-layout-admin .layui-body .layadmin-tabsbody-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.layui-show {
+    display: block!important;
+}
+.layadmin-tabspage-none .layadmin-header {
+    display: block;
+}
+.layadmin-header {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.layadmin-tabspage-none .layadmin-header .layui-breadcrumb {
+    border-top: 1px solid #f6f6f6;
+}
+.layadmin-header .layui-breadcrumb {
+    padding: 0 15px;
+}
+.layui-breadcrumb span[lay-separator] {
+    margin: 0 10px;
+    color: #999;
+}

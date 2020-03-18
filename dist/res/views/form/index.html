@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="./res/css/main.css?time=12">
+<!--<link rel="stylesheet" href="./res/css/matrix.css">-->
+
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li class="layui-this">预览</li>
+        <li>查看代码</li>
+    </ul>
+    <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">
+
+            <form class="layui-form form-update" action="" lay-filter="layui-form">
+                <div class="main-box">
+
+                    <!--textbox-->
+                    <div class="layui-form-item">
+                        <div class="form-group">
+                            <label>项目简称</label>
+                            <input type="text" id="project" name="project" lay-verify="required" placeholder="请输入项目简称"
+                                   class="layui-input ">
+                        </div>
+                    </div>
+
+                    <!--droplist-->
+                    <div class="layui-form-item">
+                        <div class="form-group">
+                            <label>项目类型</label>
+                            <select class="form-control " id="project_type" name="project_type"
+                                    lay-filter="project_type" lay-verify="required">
+                                <option value="">请选择</option>
+                                <option value="1">正常</option>
+                                <option value="2">关闭</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--radio-->
+                    <div class="layui-form-item">
+                        <div class="form-group">
+                            <label>接口类型</label>
+                            <input type="radio" lay-filter="api_type" name="api_type" title="网关型" value="0">
+                            <input type="radio" lay-filter="api_type" name="api_type" title="通用" value="1">
+                        </div>
+                    </div>
+
+                    <!--textarea-->
+                    <div class="layui-form-item">
+                        <div class="form-group">
+                            <label>备注</label>
+                            <textarea id="desc" name="desc" lay-verify="" placeholder=""
+                                      class="layui-textarea "></textarea>
+                        </div>
+                    </div>
+
+                    <!--submit-->
+                    <div class="layui-form-item">
+                        <div class="form-group">
+                            <button lay-submit lay-filter="submit" class="btn btn-primary">提交</button>
+
+
+                            <button class="btn btn-primary" onclick="goto_url_back('JR_query_project'); return false;">
+                                返回
+                            </button>
+                        </div>
+                        <script>
+                            function goto_url_back(url) {
+                                var param = '?'
+                                // turnpage(url + param);
+                                return false;
+                            }
+
+
+                            layui.use('form', function () {
+                                form = layui.form;
+                                form.render();
+
+                                // var EmptyForm = getobj();
+                                //
+                                // function getobj() {
+                                //     var elms = $("form [name]"); //formid 包含name属性的所有元素
+                                //     var obj = {};
+                                //     $.each(elms, function (i, item) {
+                                //         var name = $(item).attr("name");
+                                //         obj[name] = "";
+                                //     });
+                                //     return obj;
+                                // }
+
+                                form.on('submit(submit)', function (data) {
+                                    // POSTHttpRequest('add_project', data.field, showApiMsg);
+
+                                    // form.val('layui-form', EmptyForm);
+
+                                    return false;
+                                });
+
+                            });
+                        </script>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="layui-tab-item">
+            <pre class="layui-code" lay-title="Textbox">
+project = Textbox()
+project.caption = "项目简称"
+project.id = "project"
+project.placeholder = "请输入项目简称"
+project.verification = "required"
+            </pre>
+             <pre class="layui-code" lay-title="Droplist">
+# 适用场景：下拉框中，文本内容固定
+droplist = Droplist()
+droplist.caption = "项目类型"
+droplist.id = "droplist"
+droplist.title = "正常|关闭"
+droplist.value = "0|1"
+droplist.selected_value = "0"
+            </pre>
+            <pre class="layui-code" lay-title="Radio">
+# 圆形选框
+role_status = Radio()
+role_status.caption = '接口类型'
+role_status.name = 'api_type'
+role_status.title = '网关型|通用'
+role_status.value = '0|1'
+role_status.verification = "required"
+            </pre>
+            <pre class="layui-code" lay-title="Textarea">
+# 文本框
+textarea = Textarea()
+textarea.caption = "备注"
+textarea.id = "desc"
+textarea.placeholder = "600位"
+textarea.maxlength = "600"
+textarea.minlength = "1"
+textarea.verification = "required|length"
+textarea.item_id = ""
+            </pre>
+            <pre class="layui-code" lay-title="Submit">
+# 提交 + 返回按钮
+btn_submit = Submit()
+btn_submit.id = 'submit'
+btn_submit.text = "提交"
+btn_submit.method = "POST"
+btn_submit.callback = "showApiMsg"
+btn_submit.url = ""
+btn_submit.back_id = "back"
+btn_submit.back_url = ""
+btn_submit.back_text = "返回"
+            </pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use('code', function () {
+        layui.code();
+    });
+</script>
