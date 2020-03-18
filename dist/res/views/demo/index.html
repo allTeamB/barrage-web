@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="./res/css/main.css?time=12">
+
+<link rel="stylesheet" href="./res/css/demo.css?time=14">
+
+<div class="layui-body site-demo">
+
+    <form id="LAY_demoForm" target="LAY_demo" method="post" action="">
+        <div class="site-demo-editor">
+            <div class="site-demo-area">
+                <textarea id="LAY_editor" spellcheck="false" placeholder="此处放 zion 组件代码"></textarea>
+            </div>
+            <div class="site-demo-btn">
+                <button type="button" class="layui-btn" id="LAY_demo_run">运行代码</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="site-demo-result">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this">预览</li>
+                <li>代码</li>
+            </ul>
+            <div class="layui-tab-content" style="height: 100px;">
+                <div class="layui-tab-item layui-show">
+                    <form class="layui-form form-update" action="" lay-filter="layui-form">
+                        <div class="main-box">
+
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-tab-item">
+                    <textarea id="LAY_demo_html" spellcheck="false"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<script>
+    layui.use(['layer', 'form', 'code'], function () {
+        var $ = layui.$;
+        form = layui.form;
+        layui.code();
+
+        $("#LAY_demo_run").click(function () {
+
+            $.ajax({
+                url: "http://192.168.25.111:9905/compiler",
+                type: "post",
+                data: {zion_code: $("#LAY_editor").val()},
+                success: function (ret) {
+                    console.log(ret);
+                    $(".main-box").html(ret.data);
+                    $("#LAY_demo_html").val(ret.data);
+                    form.render();
+                }
+            });
+
+
+            return false;
+
+        });
+    });
+</script>
