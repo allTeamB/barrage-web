@@ -12,7 +12,10 @@ layui.define(['laytpl', 'layer', 'element', 'form', 'config', 'barrageutil'], fu
         , config = layui.config;
     var check = function () {
         if (!util.getCookie("token")) {
-            util.goToPage(config.frontUrl + 'login.html');
+            util.pop("登录态缺失, 请重新登录");
+            setTimeout(function () {
+                util.goToPage(config.frontUrl + 'login.html');
+            }, 1000)
             return false;
         }
 
@@ -64,7 +67,7 @@ layui.define(['laytpl', 'layer', 'element', 'form', 'config', 'barrageutil'], fu
         $(this).removeClass('layui-anim layui-anim-rotate layui-anim-loop');
     });
 
-     // 侧边栏
+    // 侧边栏
     $('li.layui-nav-item').click(function () {
 
         // console.log($(this).hasClass("layui-nav-itemed"))
@@ -88,7 +91,7 @@ layui.define(['laytpl', 'layer', 'element', 'form', 'config', 'barrageutil'], fu
     });
 
 
-     // 设置侧边栏导航高亮
+    // 设置侧边栏导航高亮
     var layui_side_a_href = layui.data('layui-this');
     $('.layui-nav-item a').parent('li').removeClass("layui-nav-itemed");
     $('.layui-nav-item a[href=\'' + layui_side_a_href.href + '\']').parent('dd').addClass('layui-this');
