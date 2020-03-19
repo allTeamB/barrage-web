@@ -2,13 +2,20 @@
  项目JS主入口
  **/
 var GLOAB_VIEW_PATH = './res/views';
-layui.define(['laytpl', 'layer', 'element', 'form'], function (exports) {
+layui.define(['laytpl', 'layer', 'element', 'form', 'config', 'barrageutil'], function (exports) {
     var laytpl = layui.laytpl
         , layer = layui.layer
         , element = layui.element
         , form = layui.form
-        , $ = layui.$;
+        , $ = layui.$
+        , util = layui.barrageutil
+        , config = layui.config;
     var check = function () {
+        if (!util.getCookie("token")) {
+            util.goToPage(config.frontUrl + 'login.html');
+            return false;
+        }
+
         var router = layui.router(location.hash)
             , params = router.search
             , path = router.path;
@@ -61,7 +68,7 @@ layui.define(['laytpl', 'layer', 'element', 'form'], function (exports) {
     $('li.layui-nav-item').click(function () {
 
         // console.log($(this).hasClass("layui-nav-itemed"))
-            
+
         // $(this).parent('li').removeClass("layui-nav-itemed");
         //
         // console.log($(this).closest("li").hasClass("layui-nav-itemed"))

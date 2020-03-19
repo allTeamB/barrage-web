@@ -17,7 +17,8 @@ layui.define(function(exports){
 
     obj.cgi = {
         token: 'login/token',
-        captcha: 'login/captcha'
+        captcha: 'login/captcha',
+        login: 'login'
     };
 
     obj.frontUrl =obj[obj.env + 'FrontUrl'];

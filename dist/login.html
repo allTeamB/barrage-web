@@ -52,7 +52,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">账号</label>
                     <div class="layui-input-block">
-                        <input name="username" type="text" lay-verify="required" class="layui-input">
+                        <input name="user_name" type="text" lay-verify="required" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -64,32 +64,20 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">验证码</label>
                     <div class="layui-input-inline">
-                        <input name="captcha" type="text" lay-verify="required" class="layui-input">
+                        <input name="verfiy_code" type="text" lay-verify="required" class="layui-input">
                     </div>
-                    <div class="layui-form-mid" style="padding: 0!important;">
-                        <img src="https://fly.layui.com/auth/imagecode?t=1584533173503" class="fly-imagecode" style="cursor: pointer;">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">自定义验证</label>
-                    <div class="layui-input-inline">
-                        <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
-                </div>
-                <div class="layui-form-item" pane="">
-                    <label class="layui-form-label" lay-tips="7天内免登陆">记住我</label>
-                    <div class="layui-input-block">
-                        <input type="radio" name="remember" value="on" title="是">
-                        <input type="radio" name="remember" value="off" title="否" checked="">
+                    <div class="layui-form-mid" style="padding: 0!important;height: 38px;">
+                        <img id="captcha" src="" class="fly-imagecode" style="cursor: pointer;height: 38px;">
                     </div>
                 </div>
+<!--                <div class="layui-form-item" pane="">-->
+<!--                    <label class="layui-form-label" lay-tips="7天内免登陆">记住我</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="radio" name="remember" value="on" title="是">-->
+<!--                        <input type="radio" name="remember" value="off" title="否" checked="">-->
+<!--                    </div>-->
+<!--                </div>-->
 
-                <!--                <div class="layui-form-item">-->
-                <!--                    <a href="javascript:;" class="layui-link">帐号注册</a>-->
-                <!--                    <a href="javascript:;" class="layui-link pull-right">忘记密码？</a>-->
-                <!--                </div>-->
                 <div class="layui-form-item">
                     <button lay-filter="login-submit" class="layui-btn layui-btn-fluid" lay-submit>登 录</button>
                 </div>
@@ -106,51 +94,12 @@
 <script src="./layui/layui.js"></script>
 
 <script>
-    layui.use(['layer', 'form'], function () {
-        var $ = layui.jquery;
-        var layer = layui.layer;
-        var form = layui.form;
+    layui.config({
+        base: './res/js/',
+        version: Date.parse(new Date())
+    }).use(['login']); //加载
 
-        // 表单提交
-        form.on('submit(login-submit)', function (obj) {
-            console.log(obj);
 
-            // var req_action = $('#form1').attr('action');
-            // var _data = $('#form1').serializeArray();
-            //
-            // var _obj = {};
-            // for(var i=0;i<_data.length;i++){
-            //         _obj[_data[i]["name"]] = _data[i]["value"];
-            // }
-            // _obj = JSON.stringify(_obj);
-
-            $.ajax({
-                type: "POST",
-                url: "http://127.0.0.1:8080/login",
-                data: obj.field,
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-                },
-                error: function (xhr, status, error) {
-
-                }
-            })
-
-            return false;
-        });
-
-        // 图形验证码
-        // $('.login-captcha').click(function () {
-        //     this.src = this.src + '?t=' + (new Date).getTime();
-        // });
-
-        // var errorMsg = "${tips!}";
-        // if (errorMsg) {
-        //     layer.msg(errorMsg, {icon: 5, anim: 6});
-        // }
-
-    });
 </script>
 
 
