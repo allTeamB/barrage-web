@@ -66,7 +66,11 @@ layui.define(['config', 'barrageutil', 'form'], function (exports) {
             });
 
         return false;
-    })
+    });
+
+    $(document).on("click", '#captcha', function () {
+        getToken();
+    });
 
     getToken();
     exports('login', {});
